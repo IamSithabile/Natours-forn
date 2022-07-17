@@ -1,0 +1,193 @@
+.features__card {
+    width: 20%;
+    background-color: $light-grey;
+    padding: 3rem;
+    box-shadow: 0 1rem 2rem rgba($black, 0.2);
+    text-align: center;
+    transition: all .4s;
+
+    &:not(:last-child) {
+        @include respond(tab-port) {
+            margin-bottom: 8rem;
+        }
+    }
+
+    @include respond(tab-port) {
+        width: 30rem;
+        padding: 2rem;
+    }
+
+
+
+    &--icon {
+        font-size: 6rem;
+        color: transparent;
+    }
+
+    &:hover {
+        transform: scale(1.1);
+        box-shadow: 0 2rem 3rem rgba($black, 0.3);
+
+    }
+}
+
+.icon-background {
+    background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    -webkit-background-clip: text;
+}
+
+.card {
+
+    //Card layout
+
+    width: 35rem;
+    height: 53rem;
+    position: relative;
+    perspective: 150rem;
+
+    &:not(:last-child) {
+        @include respond(tab-port) {
+            margin-bottom: 10rem;
+        }
+    }
+
+    &__side {
+        color: $white;
+        box-shadow: 0 1rem 2rem rgba($black, 0.2);
+        backface-visibility: hidden;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-radius: 1rem;
+        transition: all .8s ease;
+        color: rgba($black, 0.6);
+
+        &--front {
+            background-color: $white;
+        }
+
+        &--back {
+            background-image: linear-gradient(to right bottom, $color-secondary-dark, $color-secondary-light);
+            transform: rotateY(180deg);
+
+            &-1 {
+                background-image: linear-gradient(to right bottom, $color-secondary-dark, $color-secondary-light);
+            }
+
+            &-2 {
+                background-image: linear-gradient(to right bottom, $color-primary-dark, $color-primary-light);
+
+            }
+
+            &-3 {
+                background-image: linear-gradient(to right bottom, $color-tertiary-dark, $color-tertiary-light);
+            }
+        }
+    }
+
+    &:hover &__side--front {
+        transform: rotateY(-180deg);
+    }
+
+    &:hover &__side--back {
+        transform: rotateY(0) translateY(-1rem);
+    }
+
+    //Card Design
+
+    &__picture {
+        background-size: cover;
+        height: 23rem;
+        background-blend-mode: screen;
+        clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+
+
+        &--1 {
+            background-image: url(../../img/nat-5.jpg);
+        }
+
+        &--2 {
+            background-image: url(../../img/nat-6.jpg);
+        }
+
+        &--3 {
+            background-image: url(../../img/nat-7.jpg);
+        }
+    }
+
+    &__heading {
+        font-size: 2.8rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        text-align: right;
+        color: $white;
+        position: absolute;
+        top: 12rem;
+        right: 2rem;
+    }
+
+    &__heading-span {
+        padding: 1rem 1.5rem;
+
+
+
+        &--1 {
+            background-image: linear-gradient(to right bottom, $color-secondary-dark, $color-secondary-light);
+        }
+
+        &--2 {
+            background-image: linear-gradient(to right bottom, $color-primary-dark, $color-primary-light);
+        }
+
+        &--3 {
+            background-image: linear-gradient(to right bottom, $color-tertiary-dark, $color-tertiary-light);
+        }
+
+    }
+
+    &__details {
+        padding: 3rem;
+
+        ul {
+            list-style: none;
+            width: 80%;
+            margin: 0 auto;
+
+            li {
+                text-align: center;
+                font-size: 1.5rem;
+                padding: 1rem;
+
+                &:not(:last-child) {
+                    border-bottom: 1px solid rgba($black, 0.2);
+                }
+            }
+        }
+    }
+
+    &__rear {
+        display: flex;
+        height: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: $white;
+        text-transform: uppercase;
+
+        &--subhead {
+            font-size: 2rem;
+        }
+
+        &--price {
+            font-size: 4rem;
+            font-weight: lighter;
+            margin-bottom: 4rem;
+        }
+
+    }
+}

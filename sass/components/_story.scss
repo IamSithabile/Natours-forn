@@ -1,0 +1,52 @@
+.story {
+    width: 75%;
+    margin: 0 auto 10rem;
+    background-color: rgba($white, .6);
+    box-shadow: 0 3rem 6rem rgba($black, 0.2);
+    transform: skewX(-12deg);
+    padding: 6rem;
+
+
+    &>* {
+        transform: skewX(12deg);
+    }
+
+    &__shape {
+        height: 15rem;
+        width: 15rem;
+        clip-path: circle(50%);
+        position: relative;
+
+        &--img {
+            height: 100%;
+            transform: translateX(-4rem) scale(1.4);
+            transition: all .5s;
+
+            &-client {
+                color: $white;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, 20%);
+                opacity: 0;
+                transition: all .5s;
+
+            }
+        }
+
+        &:hover &--img-client {
+            transform: translate(-50%, -50%);
+            opacity: 1;
+        }
+
+        &:hover &--img {
+            transform: translateX(-4rem) scale(1);
+            filter: blur(.2rem) brightness(80%);
+        }
+    }
+
+    &__text {
+        margin-left: 2rem;
+    }
+
+}

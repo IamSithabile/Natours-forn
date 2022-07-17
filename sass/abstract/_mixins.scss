@@ -1,0 +1,42 @@
+// media query definitions
+
+//0-600px:      phone
+//600-900px:    tab-port
+//900-1200px:   tab-land
+//+1800px:      Big desktop
+
+//Media query manager mixin
+
+@mixin respond ($breakpoint) {
+    @if $breakpoint ==phone {
+        @media screen and (max-width: 37.5em) {
+            @content
+        }
+
+        ;
+    }
+
+    @if $breakpoint ==tab-port {
+        @media screen and (max-width: 56.26em) {
+            @content
+        }
+
+        ;
+    }
+
+    @if $breakpoint ==tab-land {
+        @media screen and (max-width: 75em) {
+            @content
+        }
+
+        ;
+    }
+
+    @if $breakpoint ==big-desktop {
+        @media screen and (min-width: 112.5em) {
+            @content
+        }
+
+        ;
+    }
+}
